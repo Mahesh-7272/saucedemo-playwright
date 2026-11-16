@@ -6,12 +6,12 @@ from pages.inventory_page import InventoryPage
 from pages.login_page import LoginPage
 
 
-def test_logout(page: Page):
+def test_logout(page: Page, users, password):
     login_page = LoginPage(page)
     inventory_page = InventoryPage(page)
 
     login_page.open()
-    login_page.login("standard_user", "secret_sauce")
+    login_page.login(users["standard"], password)
 
     inventory_page.logout()
 
